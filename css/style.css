@@ -1,3 +1,105 @@
+/* ---- palette: near-black, white, teal (colorblind safe) ---- */
+:root {
+  --ink: #1a1a1a;        /* body text    ~17:1 on white */
+  --heading: #004d52;    /* dark teal    ~9:1  on white */
+  --link: #006d77;       /* teal         ~6:1  on white */
+  --muted: #4a4a4a;      /* captions     ~9:1  on white */
+  --surface: #f0f7f7;    /* pale teal tint for asides   */
+  --page: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: 'Work Sans', system-ui, sans-serif;
+  font-size: 1.125rem;   /* 18px */
+  line-height: 1.6;
+}
+
+/* ---- auto-centering wrapper, caps line length ---- */
+.container {
+  max-width: 70ch;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+/* ---- headings: serif, teal ---- */
+h1, h2, h3 {
+  font-family: 'Merriweather', Georgia, serif;
+  color: var(--heading);
+  line-height: 1.25;
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h1 { font-size: 2.25rem; margin-top: 0; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+
+p { margin: 0 0 1.25rem; }
+
+/* ---- links ---- */
+a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+a:hover { text-decoration-thickness: 2px; }
+
+a:focus-visible {
+  outline: 3px solid var(--heading);
+  outline-offset: 2px;
+}
+
+/* ---- navigation ---- */
+nav ul {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--surface);
+  border-bottom: 1px solid var(--surface);
+}
+
+nav li { margin: 0.35rem 0; }
+
+/* ---- images ---- */
+figure {
+  margin: 2rem 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+figcaption {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+/* ---- supplementary content ---- */
+aside {
+  background: var(--surface);
+  border-left: 4px solid var(--link);
+  padding: 1rem 1.25rem;
+  margin: 2rem 0;
+}
+
+aside h2 { margin-top: 0; font-size: 1.15rem; }
+
+footer {
+  border-top: 1px solid var(--surface);
+  margin-top: 3rem;
+  padding-top: 1rem;
+  font-size: 0.95rem;
+}
+
+/* Hide only visually, but have it available for screen readers: */
 .sr-only {
   border: 0;
   clip: rect(0, 0, 0, 0);
@@ -10,6 +112,7 @@
   width: 1px;
 }
 
+/* skip link: hidden until keyboard focus */
 .skip-link {
   position: absolute;
   left: -9999px;
@@ -18,5 +121,7 @@
 .skip-link:focus {
   position: static;
   display: inline-block;
-  padding: 8px;
+  background: var(--heading);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
 }
